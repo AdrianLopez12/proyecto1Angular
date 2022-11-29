@@ -38,7 +38,6 @@ export class ProductsService {
     this.productsCollection.doc(product.uid).update(Object.assign({}, product));
   }
 
-
   deleteProductFire(product: product) {
     this.productsCollection.doc(product.uid).delete();
   }

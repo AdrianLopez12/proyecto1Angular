@@ -5,12 +5,12 @@ import { EditarProductosComponent } from './pages/productos/editar-productos/edi
 import { ListarProductosComponent } from './pages/productos/listar-productos/listar-productos.component';
 
 const routes: Routes = [
-  {path: 'productos/crear', component: CrearProductosComponent},
-  {path: 'productos/listar', component: ListarProductosComponent},
-  {path: 'productos/editar', component: EditarProductosComponent},
+  { path: 'productos/crear', component: CrearProductosComponent },
+  { path: 'productos/listar', component: ListarProductosComponent },
+  { path: 'productos/editar', component: EditarProductosComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

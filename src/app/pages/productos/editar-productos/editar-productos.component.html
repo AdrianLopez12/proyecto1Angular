@@ -1,18 +1,15 @@
-<h1>{{title}}</h1>
+<h1>{{ title }}</h1>
 <p>Formulario para editar productos</p>
 <form action="formulario">
+  <label for="txtCode">codigo</label>
+  <input id="txtCode" name="txtCode" [(ngModel)]="product.code" /> <br />
 
-    <label for="txtCode">codigo</label>
-    <input id="txtCode" name="txtCode" [(ngModel)] = "product.code"/> <br/>
+  <label for="txtName">Nombre</label>
+  <input id="txtName" name="txtName" [(ngModel)]="product.name" /> <br />
 
-    <label for="txtName">Nombre</label>
-    <input id="txtName" name="txtName" [(ngModel)] = "product.name"/> <br/>
+  <label for="txtPrecio">precio</label>
+  <input id="txtPrecio" name="txtPrecio" [(ngModel)]="product.price" /> <br />
 
-    <label for="txtPrecio">precio</label>
-    <input id="txtPrecio" name="txtPrecio" [(ngModel)] = "product.price"/> <br/>
-
-    <button (click)= "editar()">Editar</button>
-
-
+  <button (click)="editar()">Editar</button>
 </form>
-<button (click) ="goListarProductos()">listado productos</button>
+<button (click)="goListarProductos()">listado productos</button>
