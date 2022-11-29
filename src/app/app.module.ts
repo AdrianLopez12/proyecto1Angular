@@ -6,17 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrearProductosComponent } from './pages/productos/crear-productos/crear-productos.component';
 import { ListarProductosComponent } from './pages/productos/listar-productos/listar-productos.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { EditarProductosComponent } from './pages/productos/editar-productos/editar-productos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CrearProductosComponent,
-    ListarProductosComponent
+    ListarProductosComponent,
+    EditarProductosComponent,
   ],
 
   imports: [
@@ -25,10 +27,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
-
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,12 +4,12 @@ import { ProductsService } from 'src/app/services/products.service';
 import { product } from '../../domain/product';
 
 @Component({
-  selector: 'app-crear-productos',
-  templateUrl: './crear-productos.component.html',
-  styleUrls: ['./crear-productos.component.scss'],
+  selector: 'app-editar-productos',
+  templateUrl: './editar-productos.component.html',
+  styleUrls: ['./editar-productos.component.scss'],
 })
-export class CrearProductosComponent {
-  title = 'Crear Productos';
+export class EditarProductosComponent {
+  title = 'Editar Productos existentes';
 
   product: product = new product();
 
@@ -29,15 +29,15 @@ export class CrearProductosComponent {
 
   ngOnInit(): void {}
 
-  guardar() {
+  editar() {
     console.log(this.product);
-    this.productsService.addproductFire(this.product);
+    this.productsService.editarproductFire(this.product);
     this.product = new product();
+    this.router.navigate(['productos/listar']);
   }
 
   goListarProductos() {
     console.log('llamado listado');
-
     this.router.navigate(['productos/listar']);
   }
 }

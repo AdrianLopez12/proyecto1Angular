@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<p>Formulario para crear productos</p>
+<p>Formulario para editar productos</p>
 <form action="formulario">
 
     <label for="txtCode">codigo</label>
@@ -11,7 +11,7 @@
     <label for="txtPrecio">precio</label>
     <input id="txtPrecio" name="txtPrecio" [(ngModel)] = "product.price"/> <br/>
 
-    <button (click)= "guardar()">guardar</button>
+    <button (click)= "editar()">Editar</button>
 
 
 </form>

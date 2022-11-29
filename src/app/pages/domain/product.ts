@@ -1,5 +1,6 @@
 export class product {
-    code?: string;
-    name?: string;
-    price?: number;
+  uid?: string;
+  code?: string;
+  name?: string;
+  price?: number;
 }
