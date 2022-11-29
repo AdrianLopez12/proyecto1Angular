@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "compras61a": {
+      "hosting": {
+        "proyecto1Angular": [
+          "compras61a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "compras61a"
+  }
+}

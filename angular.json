@@ -97,6 +97,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "proyecto1Angular:build:production",
+            "firebaseProject": "compras61a",
+            "firebaseHostingSite": "compras61a"
+          }
         }
       }
     }
