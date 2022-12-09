@@ -1,23 +1,55 @@
 <h1>{{ title }}</h1>
 <p>listar-productos works!</p>
-<table>
-  <tr>
-    <th>codigo</th>
-    <th>nombre</th>
-    <th>precio</th>
+<div class="contenedor">
+  <table mat-table [dataSource]="lstProducts2" class="mat-elevation-z8">
+    <ng-container matColumnDef="Codigo">
+      <th mat-header-cell *matHeaderCellDef>Codigo.</th>
+      <td mat-cell *matCellDef="let p">
+        {{ p.code }}
+      </td>
+    </ng-container>
 
-    <th>Cambios</th>
-  </tr>
-  <tr *ngFor="let product of products | async">
-    <td>{{ product.code }}</td>
-    <td>{{ product.name }}</td>
-    <td>{{ product.price }}</td>
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.name }}
+      </td>
+    </ng-container>
 
-    <td>
-      <button (click)="editProduct(product)">Editar</button>
-      <button (click)="deleteProductFire(product)">Borrar</button>
-    </td>
-  </tr>
-</table>
+    <ng-container matColumnDef="Precio">
+      <th mat-header-cell *matHeaderCellDef>precio</th>
+      <td mat-cell *matCellDef="let product">
+        {{ product.price }}
+      </td>
+    </ng-container>
 
-<button (click)="goNewProduct()">Crear productos</button>
+    <ng-container matColumnDef="Acciones">
+      <th mat-header-cell *matHeaderCellDef>Cambios</th>
+      <td mat-cell *matCellDef="let product">
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="editProduct(product)"
+          class="b2"
+        >
+          Editar
+        </button>
+        <button
+          class="b2"
+          mat-raised-button
+          color="primary"
+          (click)="deleteProductFire(product)"
+        >
+          Borrar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+  </table>
+</div>
+
+<button mat-raised-button color="accent" (click)="goNewProduct()" class="buton">
+  Crear
+</button>

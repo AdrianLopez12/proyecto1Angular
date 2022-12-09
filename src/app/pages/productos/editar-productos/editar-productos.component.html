@@ -1,15 +1,32 @@
 <h1>{{ title }}</h1>
 <p>Formulario para editar productos</p>
 <form action="formulario">
-  <label for="txtCode">codigo</label>
-  <input id="txtCode" name="txtCode" [(ngModel)]="product.code" /> <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Codigo</mat-label>
+    <input id="txtCode" name="txtCode" matInput [(ngModel)]="product.code" />
+  </mat-form-field>
 
-  <label for="txtName">Nombre</label>
-  <input id="txtName" name="txtName" [(ngModel)]="product.name" /> <br />
+  <br />
 
-  <label for="txtPrecio">precio</label>
-  <input id="txtPrecio" name="txtPrecio" [(ngModel)]="product.price" /> <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input id="txtName" name="txtName" matInput [(ngModel)]="product.name" />
+  </mat-form-field>
+  <br />
 
-  <button (click)="editar()">Editar</button>
+  <mat-form-field appearance="fill">
+    <mat-label>precio</mat-label>
+    <input
+      id="txtPrecio"
+      name="txtPrecio"
+      matInput
+      [(ngModel)]="product.price"
+    />
+  </mat-form-field>
+  <br />
+  <button mat-raised-button color="accent" (click)="editar()">Aceptar</button>
 </form>
-<button (click)="goListarProductos()">listado productos</button>
+<br />
+<button mat-raised-button color="accent" (click)="goListarProductos()">
+  listado productos
+</button>

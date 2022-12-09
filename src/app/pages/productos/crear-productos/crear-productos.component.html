@@ -1,15 +1,45 @@
 <h1>{{ title }}</h1>
 <p>Formulario para crear productos</p>
-<form action="formulario">
-  <label for="txtCode">codigo</label>
-  <input id="txtCode" name="txtCode" [(ngModel)]="product.code" /> <br />
+<div class="form">
+  <form action="formulario">
+    <mat-form-field appearance="fill">
+      <mat-label>Codigo</mat-label>
+      <input id="txtCode" name="txtCode" matInput [(ngModel)]="product.code" />
+    </mat-form-field>
 
-  <label for="txtName">Nombre</label>
-  <input id="txtName" name="txtName" [(ngModel)]="product.name" /> <br />
+    <br />
 
-  <label for="txtPrecio">precio</label>
-  <input id="txtPrecio" name="txtPrecio" [(ngModel)]="product.price" /> <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input id="txtName" name="txtName" matInput [(ngModel)]="product.name" />
+    </mat-form-field>
+    <br />
 
-  <button (click)="guardar()">guardar</button>
-</form>
-<button (click)="goListarProductos()">listado productos</button>
+    <mat-form-field appearance="fill">
+      <mat-label>precio</mat-label>
+      <input
+        id="txtPrecio"
+        name="txtPrecio"
+        matInput
+        [(ngModel)]="product.price"
+      />
+    </mat-form-field>
+    <br />
+
+    <button mat-raised-button color="accent" (click)="guardar()">
+      guardar
+    </button>
+
+    <!-- <button (click)="guardar()">guardar</button> -->
+  </form>
+</div>
+
+<button
+  mat-raised-button
+  color="accent"
+  (click)="goListarProductos()"
+  class="buton"
+>
+  listado productos
+</button>
+<!-- <button (click)="goListarProductos()">listado productos</button> -->

@@ -20,6 +20,7 @@ export class ListarProductosComponent {
 
   lstProducts = new Array();
   products: any;
+  lstProducts2 = new Array();
 
   constructor(
     private router: Router,
@@ -37,6 +38,11 @@ export class ListarProductosComponent {
     // this.lstProducts = this.productsService.getProducts();
     this.products = this.productsService.getProductsFire();
     console.log(this.products);
+
+    this.products.subscribe((data: any) => {
+      this.lstProducts2 = data;
+      console.log(this.lstProducts2);
+    });
   }
 
   goNewProduct() {
@@ -67,4 +73,5 @@ export class ListarProductosComponent {
   deleteProductFire(product: product) {
     this.productsCollection.doc(product.uid).delete();
   }
+  columnsToDisplay = ['Codigo', 'Nombre', 'Precio', 'Acciones'];
 }
